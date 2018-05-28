@@ -19,17 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', function () {
-
-$article = DB::table('article')->get();
-
-    return view('hello', [
-        'name' => 'Andrey',
-        'old' => '12',
-    ], compact('article'));
-});
-
-Route::get('/articles/{article}', function ($id) {
-    $article = DB::table('article')->find($id);
-    return view('articles.show', compact('article'));
-});
+Route::get('hello', 'ArticleController@index');
+Route::get('/articles/{article}', 'ArticleController@show');
