@@ -21,9 +21,10 @@ Route::get('/', function () {
 
 Route::get('hello', function () {
 $tasks = DB::table('tasks')->get();
+$article = DB::table('article')->get();
 
     return view('hello', [
         'name' => 'Andrey',
         'old' => '12',
-    ], compact('tasks'));
+    ], compact('tasks', 'article'));
 });
