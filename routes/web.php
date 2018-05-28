@@ -20,11 +20,16 @@ Route::get('/', function () {
 });
 
 Route::get('hello', function () {
-$tasks = DB::table('tasks')->get();
+
 $article = DB::table('article')->get();
 
     return view('hello', [
         'name' => 'Andrey',
         'old' => '12',
-    ], compact('tasks', 'article'));
+    ], compact('article'));
+});
+
+Route::get('/articles/{article}', function ($id) {
+    $article = DB::table('article')->find($id);
+    return view('articles.show', compact('article'));
 });

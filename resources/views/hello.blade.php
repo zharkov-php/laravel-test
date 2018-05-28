@@ -82,13 +82,15 @@
                    Hello {{$name}}  my friend!!!Тебе <?= $old; ?> лет!!!
                 </div>
                 <hr>
-                @foreach ($tasks as $task)
-                <li>{{$task->body}}</li>
-                @endforeach
+
 <hr><center><h2>Все статьи:</h2></center>
 
                 @foreach($article as $article1)
-                    <li>{{$article1->title}}</li>
+                    <li>
+                        <a href="articles/{{$article1->id}}">
+                        {{$article1->title}}
+                        </a>
+                    </li>
                     @endforeach
             </div>
         </div>
